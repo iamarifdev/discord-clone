@@ -1,7 +1,5 @@
 "use client";
 
-import * as z from "zod";
-
 import { useModal } from "@/hooks/use-modal-store";
 import {
   Dialog,
@@ -10,17 +8,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Check, Copy, RefreshCw } from "lucide-react";
 import { useOrigin } from "@/hooks/use-origin";
 import { useState } from "react";
 import axios from "axios";
-
-const formSchema = z.object({
-  name: z.string().min(1, { message: "Server name is required" }),
-  imageUrl: z.string().min(1, { message: "Server image is required" }),
-});
 
 export const InviteModal = () => {
   const { onOpen, isOpen, onClose, type, data } = useModal();
